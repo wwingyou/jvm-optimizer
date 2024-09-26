@@ -6,5 +6,5 @@ This is a sample web blogging service for acquising learning data.
 
 Build docker image with following command.
 ```bash
-docker build -t jvm-optimizer/tester
+docker build -t jvm-optimizer/tester .
 ```
