@@ -13,6 +13,17 @@ java {
 	}
 }
 
+jib {
+  from {
+    platforms {
+      platform {
+        architecture = 'arm64'
+        os = 'linux'
+      }
+    }
+  }
+}
+
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
