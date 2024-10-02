@@ -2,6 +2,7 @@ package com.example.tester_v2.entity;
 
 import java.util.Set;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -25,10 +26,10 @@ public class Department {
     @Column(name = "dept_name", nullable = false, unique = true, length = 40)
     private String name;
 
-    @OneToMany(mappedBy = "department")
+    @OneToMany(mappedBy = "department", cascade = CascadeType.REMOVE)
     private Set<DepartmentManager> managers;
 
-    @OneToMany(mappedBy = "department")
+    @OneToMany(mappedBy = "department", cascade = CascadeType.REMOVE)
     private Set<DepartmentEmployee> employees;
 
 }
