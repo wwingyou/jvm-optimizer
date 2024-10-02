@@ -55,4 +55,10 @@ public class Employee {
     @OneToMany(mappedBy = "employee")
     private Set<DepartmentEmployee> engagingDepartment;
 
+    @OneToMany(mappedBy = "employee")
+    private Set<Title> titles;
+
+    @OneToMany(mappedBy = "employee")
+    private Set<Salary> salaries;
+
 }
