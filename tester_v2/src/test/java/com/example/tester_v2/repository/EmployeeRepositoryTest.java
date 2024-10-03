@@ -65,10 +65,10 @@ public class EmployeeRepositoryTest {
         log.info("== When complete ==");
 
         // Then
-        assertThat(foundEmployee).isNotNull();
-        assertThat(foundEmployee.equals(savedEmployee));
-        assertThat(foundEmployee.getSalaries().contains(salary));
-        assertThat(foundEmployee.getTitles().contains(title));
+        assertThat(foundEmployee).isNotNull()
+                                 .isEqualTo(savedEmployee);
+        assertThat(foundEmployee.getSalaries()).contains(salary);
+        assertThat(foundEmployee.getTitles()).contains(title);
 
         entityManager.flush();
         log.info("== Then complete ==");

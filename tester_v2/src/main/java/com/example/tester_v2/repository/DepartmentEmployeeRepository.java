@@ -7,5 +7,5 @@ import com.example.tester_v2.entity.DepartmentEmployee;
 /**
  * DepartmentEmployeeRepository
  */
-public interface DepartmentEmployeeRepository extends JpaRepository<DepartmentEmployee, Integer> {
+public interface DepartmentEmployeeRepository extends JpaRepository<DepartmentEmployee, DepartmentEmployee.PK> {
 }

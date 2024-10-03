@@ -7,5 +7,5 @@ import com.example.tester_v2.entity.DepartmentManager;
 /**
  * DepartmentManagerRepository
  */
-public interface DepartmentManagerRepository extends JpaRepository<DepartmentManager, Integer> {
+public interface DepartmentManagerRepository extends JpaRepository<DepartmentManager, DepartmentManager.PK> {
 }
