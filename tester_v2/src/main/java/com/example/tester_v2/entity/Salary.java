@@ -12,7 +12,10 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MapsId;
 import jakarta.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 /**
  * Salary
@@ -20,6 +23,9 @@ import lombok.Getter;
 @Entity
 @Getter
 @IdClass(Salary.PK.class)
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Table(name = "salaries")
 public class Salary {
 
@@ -41,6 +47,12 @@ public class Salary {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "emp_no")
     private Employee employee;
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+        this.employeeNumber = employee.getEmployeeNumber();
+        employee.getSalaries().add(this);
+    }
 
     /**
      * PK class of Salary

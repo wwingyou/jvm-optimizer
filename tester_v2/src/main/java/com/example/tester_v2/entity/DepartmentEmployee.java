@@ -12,7 +12,10 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MapsId;
 import jakarta.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 /**
  * DepartmentManager
@@ -20,6 +23,9 @@ import lombok.Getter;
 @Entity
 @Getter
 @IdClass(DepartmentEmployee.PK.class)
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Table(name = "dept_emp")
 public class DepartmentEmployee {
 
@@ -46,6 +52,18 @@ public class DepartmentEmployee {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "dept_no")
     private Department department;
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+        this.employeeNumber = employee.getEmployeeNumber();
+        employee.getEngagingDepartment().add(this);
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+        this.departmentNumber = department.getNumber();
+        department.getEmployees().add(this);
+    }
 
     /**
      * PK class of DepartmentEmployee

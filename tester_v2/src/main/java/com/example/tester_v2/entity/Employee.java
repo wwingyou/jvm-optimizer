@@ -1,6 +1,7 @@
 package com.example.tester_v2.entity;
 
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
@@ -51,15 +52,19 @@ public class Employee {
     private LocalDate hireDate;
 
     @OneToMany(mappedBy = "manager", cascade = CascadeType.REMOVE)
-    private Set<DepartmentManager> managingDepartment;
+    @Builder.Default
+    private Set<DepartmentManager> managingDepartment = new HashSet<>();
 
     @OneToMany(mappedBy = "employee", cascade = CascadeType.REMOVE)
-    private Set<DepartmentEmployee> engagingDepartment;
+    @Builder.Default
+    private Set<DepartmentEmployee> engagingDepartment = new HashSet<>();
 
-    @OneToMany(mappedBy = "employee", cascade = CascadeType.REMOVE)
-    private Set<Title> titles;
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    @Builder.Default
+    private Set<Title> titles = new HashSet<>();
 
-    @OneToMany(mappedBy = "employee", cascade = CascadeType.REMOVE)
-    private Set<Salary> salaries;
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    @Builder.Default
+    private Set<Salary> salaries = new HashSet<>();
 
 }

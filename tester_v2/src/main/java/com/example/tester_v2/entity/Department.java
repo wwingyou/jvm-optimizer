@@ -1,5 +1,6 @@
 package com.example.tester_v2.entity;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
@@ -9,13 +10,19 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 /**
  * Department
  */
 @Entity
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Table(name = "departments")
 public class Department {
 
@@ -27,9 +34,11 @@ public class Department {
     private String name;
 
     @OneToMany(mappedBy = "department", cascade = CascadeType.REMOVE)
-    private Set<DepartmentManager> managers;
+    @Builder.Default
+    private Set<DepartmentManager> managers = new HashSet<>();
 
     @OneToMany(mappedBy = "department", cascade = CascadeType.REMOVE)
-    private Set<DepartmentEmployee> employees;
+    @Builder.Default
+    private Set<DepartmentEmployee> employees = new HashSet<>();
 
 }
