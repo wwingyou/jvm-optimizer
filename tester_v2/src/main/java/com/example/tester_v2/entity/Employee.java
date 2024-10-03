@@ -17,6 +17,7 @@ import com.example.tester_v2.etc.Gender;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -25,10 +26,11 @@ import lombok.NoArgsConstructor;
  */
 @Entity
 @Getter
-@Table(name = "employees")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(of = { "employeeNumber" })
+@Table(name = "employees")
 public class Employee {
 
     @Id
