@@ -43,4 +43,8 @@ public class Department {
     @Builder.Default
     private Set<DepartmentEmployee> employees = new HashSet<>();
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
 }

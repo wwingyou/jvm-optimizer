@@ -45,12 +45,12 @@ public class DepartmentManager {
     @Column(name = "to_date", nullable = false)
     private LocalDate toDate;
 
-    @MapsId
+    @MapsId("employeeNumber")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "emp_no")
     private Employee manager;
 
-    @MapsId
+    @MapsId("departmentNumber")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "dept_no")
     private Department department;
