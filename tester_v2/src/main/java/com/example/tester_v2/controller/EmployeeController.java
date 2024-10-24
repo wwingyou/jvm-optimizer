@@ -18,29 +18,35 @@ import com.example.tester_v2.dto.EmployeeForm;
 import com.example.tester_v2.dto.EmployeeView;
 import com.example.tester_v2.dto.SalaryForm;
 import com.example.tester_v2.dto.TitleForm;
+import com.example.tester_v2.service.EmployeeService;
+
+import lombok.AllArgsConstructor;
 
 /**
  * EmployeeController
  */
 @RestController
+@AllArgsConstructor
 @RequestMapping("employee")
 public class EmployeeController {
 
+    private final EmployeeService employeeService;
+
     @GetMapping
     public Page<EmployeeView> getEmployees(Pageable pageable) {
-        return null;
+        return employeeService.getEmployees(pageable);
     }
 
     @GetMapping("{employeeNumber}")
     public EmployeeView getEmployeeByNumber(
         @PathVariable Integer employeeNumber
     ) {
-        return null;
+        return employeeService.getEmployeeByNumber(employeeNumber);
     }
 
     @PostMapping
     public void createEmployee(@ModelAttribute EmployeeForm form) {
-        return;
+        employeeService.createEmployee(form);
     }
 
     @PutMapping("{employeeNumber}")
@@ -48,14 +54,14 @@ public class EmployeeController {
         @PathVariable Integer employeeNumber,
         @ModelAttribute EmployeeForm form
     ) {
-        return;
+        employeeService.updateEmployee(form);
     }
 
     @DeleteMapping("{employeeNumber}")
     public void deleteEmployee(
         @PathVariable Integer employeeNumber
     ) {
-        return;
+        employeeService.deleteEmployee(employeeNumber);
     }
 
     @PostMapping("{employeeNumber}/title")
@@ -63,7 +69,7 @@ public class EmployeeController {
         @PathVariable Integer employeeNumber,
         @ModelAttribute TitleForm form
     ) {
-        return;
+        employeeService.setTitle(employeeNumber, form);
     }
 
     @DeleteMapping("{employeeNumber}/title")
@@ -72,7 +78,7 @@ public class EmployeeController {
         @RequestParam String title,
         @RequestParam LocalDate fromDate
     ) {
-        return;
+        employeeService.deleteTitle(employeeNumber, title, fromDate);
     }
 
     @PostMapping("{employeeNumber}/salary")
@@ -80,7 +86,7 @@ public class EmployeeController {
         @PathVariable Integer employeeNumber,
         @ModelAttribute SalaryForm form
     ) {
-        return;
+        employeeService.setSalary(employeeNumber, form);
     }
 
     @DeleteMapping("{employeeNumber}/salary")
@@ -88,7 +94,7 @@ public class EmployeeController {
         @PathVariable Integer employeeNumber,
         @RequestParam LocalDate fromDate
     ) {
-        return;
+        employeeService.deleteSalary(employeeNumber, fromDate);
     }
 
 }
