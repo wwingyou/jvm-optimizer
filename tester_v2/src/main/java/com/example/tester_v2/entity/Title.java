@@ -46,15 +46,13 @@ public class Title {
     @Column(name = "to_date")
     private LocalDate toDate;
 
-    @MapsId
+    @MapsId("employeeNumber")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "emp_no")
     private Employee employee;
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-        this.employeeNumber = employee.getEmployeeNumber();
-        employee.getTitles().add(this);
+    public void setToDate(LocalDate toDate) {
+        this.toDate = toDate;
     }
 
     /**
