@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.tester_v2.dto.EmployeeForm;
 import com.example.tester_v2.dto.EmployeeView;
@@ -24,6 +25,7 @@ import lombok.AllArgsConstructor;
  */
 @Service
 @AllArgsConstructor
+@Transactional
 public class EmployeeServiceImpl implements EmployeeService {
 
     private final EmployeeRepository employeeRepository;
@@ -32,7 +34,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void createEmployee(EmployeeForm form) {
-        System.out.println(form.getEmployeeNumber());
         Employee employee = Employee.builder()
                 .employeeNumber(form.getEmployeeNumber())
                 .birthDate(form.getBirthDate())
@@ -61,12 +62,14 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public EmployeeView getEmployeeByNumber(Integer employeeNumber) {
         var employee = getEmployee(employeeNumber);
         return EmployeeView.of(employee);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Page<EmployeeView> getEmployees(Pageable pageable) {
         var employees = employeeRepository.findAll(pageable);
         return employees.map(EmployeeView::of);

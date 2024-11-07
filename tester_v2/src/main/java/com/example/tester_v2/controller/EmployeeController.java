@@ -6,10 +6,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -45,14 +46,14 @@ public class EmployeeController {
     }
 
     @PostMapping
-    public void createEmployee(@ModelAttribute EmployeeForm form) {
+    public void createEmployee(@RequestBody EmployeeForm form) {
         employeeService.createEmployee(form);
     }
 
     @PutMapping("{employeeNumber}")
     public void updateEmployee(
         @PathVariable Integer employeeNumber,
-        @ModelAttribute EmployeeForm form
+        @RequestBody EmployeeForm form
     ) {
         employeeService.updateEmployee(form);
     }
@@ -67,7 +68,7 @@ public class EmployeeController {
     @PostMapping("{employeeNumber}/title")
     public void addTitle(
         @PathVariable Integer employeeNumber,
-        @ModelAttribute TitleForm form
+        @RequestBody TitleForm form
     ) {
         employeeService.setTitle(employeeNumber, form);
     }
@@ -84,7 +85,7 @@ public class EmployeeController {
     @PostMapping("{employeeNumber}/salary")
     public void addSalary(
         @PathVariable Integer employeeNumber,
-        @ModelAttribute SalaryForm form
+        @RequestBody SalaryForm form
     ) {
         employeeService.setSalary(employeeNumber, form);
     }
