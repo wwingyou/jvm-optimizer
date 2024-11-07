@@ -1,0 +1,47 @@
+config:
+  # This is a test server run by team Artillery
+  # It's designed to be highly scalable
+  target: http://192.168.0.12:8080
+  phases:
+    - duration: 90
+      arrivalRate: 1
+      name: Stable request
+  # Load & configure a couple of useful plugins
+  # https://docs.art/reference/extensions
+  plugins:
+    ensure: {}
+    apdex: {}
+    metrics-by-endpoint: {}
+  apdex:
+    threshold: 100
+  ensure:
+    thresholds:
+      - http.response_time.p99: 180
+      - http.response_time.p95: 150 
+scenarios:
+  - flow:
+    - loop:
+      - loop:
+        - get:
+            url: '/employee?page={{ $loopCount }}'
+        count: 10
+      - post:
+          url: '/employee'
+          json:
+            employeeNumber: "500000"
+            birthDate: "1999-03-01"
+            firstName: "sg"
+            lastName: "lee"
+            gender: "M"
+            hireDate: "2006-03-01"
+      - put:
+          url: '/employee/500000'
+          employeeNumber: "500000"
+          birthDate: "1999-03-01"
+          firstName: "sg"
+          lastName: "lee"
+          gender: "M"
+          hireDate: "2006-06-01"
+      - delete:
+          url: '/employee/500000'
+      count: '{{ $env.ARTILLERY_REQUEST_COUNT }}'
