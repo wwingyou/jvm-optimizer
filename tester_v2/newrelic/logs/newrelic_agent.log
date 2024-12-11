@@ -1,0 +1,33 @@
+2024-10-31T14:30:09,110+0900 [61534 1] com.newrelic INFO: Writing to New Relic log file: /Users/dogchew/Projects/Java/jvm-optimizer/tester_v2/newrelic/logs/newrelic_agent.log
+2024-10-31T14:30:09,110+0900 [61534 1] com.newrelic INFO: JRE vendor Eclipse Adoptium version 17.0.10
+2024-10-31T14:30:09,110+0900 [61534 1] com.newrelic INFO: JVM vendor Eclipse Adoptium OpenJDK 64-Bit Server VM version 17.0.10+7
+2024-10-31T14:30:09,110+0900 [61534 1] com.newrelic INFO: OS Mac OS X version 15.0.1 arch aarch64
+2024-10-31T14:30:09,110+0900 [61534 1] com.newrelic INFO: Agent Host: yujeongeobmupon IP: 192.168.100.178
+2024-10-31T14:30:09,110+0900 [61534 1] com.newrelic INFO: New Relic Agent v8.15.0 is initializing...
+2024-10-31T14:30:09,399+0900 [61534 20] com.newrelic INFO: Instrumentation com.newrelic.instrumentation.jdbc-resultset is disabled. Skipping.
+2024-10-31T14:30:09,830+0900 [61534 1] com.newrelic.agent.RPMServiceManagerImpl INFO: Configured to connect to New Relic at collector.newrelic.com:443
+2024-10-31T14:30:09,942+0900 [61534 1] com.newrelic INFO: Setting audit_mode to false
+2024-10-31T14:30:10,005+0900 [61534 1] com.newrelic.agent.config.ConfigServiceImpl INFO: Configuration file is /Users/dogchew/Projects/Java/jvm-optimizer/tester_v2/newrelic/./newrelic.yml
+2024-10-31T14:30:10,008+0900 [61534 1] com.newrelic INFO: New Relic Agent v8.15.0 has started
+2024-10-31T14:30:10,008+0900 [61534 1] com.newrelic INFO: Agent class loader: com.newrelic.bootstrap.BootstrapAgent$JVMAgentClassLoader@1e127982
+2024-10-31T14:30:10,009+0900 [61534 1] com.newrelic INFO: Premain startup complete in 1,378ms
+2024-10-31T14:30:10,010+0900 [61534 1] com.newrelic INFO: New Relic Security is completely disabled by one of the user provided config `security.enabled`, `security.agent.enabled` or `high_security`. Not loading security capabilities.
+2024-10-31T14:30:12,205+0900 [61534 1] com.newrelic INFO: Server Info: Apache Tomcat/10.1.30
+2024-10-31T14:30:15,012+0900 [61534 40] com.newrelic INFO: Host name is yujeongeobmupon, display host yujeongeobmupon for application jvm-optimizer-tester-v2
+2024-10-31T14:30:15,012+0900 [61534 40] com.newrelic INFO: New Relic JFR Monitor is disabled: JFR config has not been enabled in the Java agent.
+2024-10-31T14:30:15,576+0900 [61534 40] com.newrelic INFO: Collector redirection to collector.newrelic.com:443
+2024-10-31T14:30:16,195+0900 [61534 40] com.newrelic INFO: Max payload size is 1,000,000 bytes
+2024-10-31T14:30:16,196+0900 [61534 40] com.newrelic INFO: Agent run id: BcZZPGeiwzn4AFAVUFoZZyBnIxZQAAIBAAAnIQEAAPBeAgRaGYCXAwAGOC4xNS4wAA95dWplb25nZW9ibXVwb24AF2p2bS1vcHRpbWl6ZXItdGVzdGVyLXYy
+2024-10-31T14:30:16,196+0900 [61534 40] com.newrelic INFO: Agent 61534@yujeongeobmupon/jvm-optimizer-tester-v2 connected to collector.newrelic.com:443
+2024-10-31T14:30:16,198+0900 [61534 40] com.newrelic INFO: Reporting to: https://rpm.newrelic.com/accounts/5248336/applications/1511620759
+2024-10-31T14:30:16,200+0900 [61534 40] com.newrelic INFO: Using default collector host: collector.newrelic.com
+2024-10-31T14:30:16,200+0900 [61534 40] com.newrelic INFO: Using default metric ingest URI: https://metric-api.newrelic.com/metric/v1
+2024-10-31T14:30:16,200+0900 [61534 40] com.newrelic INFO: Using default event ingest URI: https://insights-collector.newrelic.com/v1/accounts/events
+2024-10-31T14:30:16,202+0900 [61534 40] com.newrelic INFO: Using default collector host: collector.newrelic.com
+2024-10-31T14:30:16,202+0900 [61534 40] com.newrelic INFO: Using default metric ingest URI: https://metric-api.newrelic.com/metric/v1
+2024-10-31T14:30:16,202+0900 [61534 40] com.newrelic INFO: Using default event ingest URI: https://insights-collector.newrelic.com/v1/accounts/events
+2024-10-31T14:30:17,074+0900 [61534 40] com.newrelic INFO: Real user monitoring is enabled for application jvm-optimizer-tester-v2. Auto instrumentation is enabled.
+2024-10-31T14:30:17,075+0900 [61534 40] com.newrelic INFO: New Relic JFR Monitor is disabled: JFR config has not been enabled in the Java agent.
+2024-10-31T14:51:49,927+0900 [61534 15] com.newrelic.agent.core.CoreServiceImpl INFO: JVM is shutting down
+2024-10-31T14:51:49,987+0900 [61534 44] com.newrelic INFO: Transaction com.newrelic.agent.Transaction@2adfd65c tried to finish but ServiceManager not started
+2024-10-31T14:51:50,909+0900 [61534 15] com.newrelic.agent.core.CoreServiceImpl INFO: New Relic Agent has shutdown
